@@ -12,7 +12,7 @@ if not os.path.exists(pathOut):
     os.makedirs(pathOut)
 
 # Supported image file extensions
-valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
+valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp']
 
 # Define a function to apply color transformations
 def apply_color_transformations(image, name, path):
@@ -53,7 +53,7 @@ for filename in os.listdir(path):
         try:
             # Open the image file
             img = Image.open(img_path)
-            img = img.filter(ImageFilter.SHARPEN).rotate(-90)  # Apply initial sharpening and rotation
+            img = img.filter(ImageFilter.SHARPEN)  # Apply initial sharpening and rotation
 
             # Prepare output path for color edits
             color_path = os.path.join(pathOut, os.path.splitext(filename)[0])
